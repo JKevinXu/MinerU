@@ -1,5 +1,5 @@
 {
     "temp-output-dir":"/output",
     "models-dir":"/opt/models",
-    "device-mode":"cuda"
+    "device-mode":"cpu"
 }

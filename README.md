@@ -170,8 +170,11 @@ docker build . -t mineru:latest
 ```
 
 ```
-git lfs clone https://huggingface.co/wanderkid/PDF-Extract-Kit
-docker run -it --rm -v $(pwd)/output:/output -v $(pwd)/test.pdf:/test.pdf -v $(pwd)/PDF-Extract-Kit/models:/opt/models --gpus all mineru:v2 magic-pdf pdf-command --pdf "/test.pdf" --inside_model true  --model_mode full
+docker run -it --rm \
+  -v $(pwd)/output:/opt/output \
+  -v {YOUR_LOCAL_DIR_CONTAINING_PDF}:/{TARGET_DIR} \
+  mineru:latest \
+  magic-pdf pdf-command --pdf "{TARGET_DIR}/{PDF_FILE_NAME}" --inside_model true --model_mode full
 ```
 
 ### Usage
